@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="navcontainer" class="navigation__container" id="navcontainer">
+        <div class="navigation__heading">
+            <img class="top_logo" src="/img/common/Ayiza-Logo-Cropped.png"/>
+            <div class="navigation__burger-box" onclick="togglemenu()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="navigation__list">
+            <li onClick="location.href='../AY_home/signup.html'">Sign Up</li>
+            <li onClick="location.href='../AY_home/login.html'">Log In</li>
+        </ul>
+    </div>
+
+    <div th:fragment="usercontainer" class="user__container" id="usercontainer">
+        <div class="navigation__heading--user">
+            <img class="top_logo" src="/img/common/Ayiza-Logo-Cropped.png"/>
+            <div class="user__burger-box" onclick="ToggleMenuUser()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="user__list">
+            <li onClick="location.href='../AY_home/login.html'">Account Settings</li>
+            <li onClick="location.href='../AY_home/login.html'">Log In As Another User</li>
+            <li onClick="location.href='../AY_home/xlogin.html'">Log Off</li>
+        </ul>
+    </div>
+
+    <div th:fragment="toolbar" class="global-header">
+        <div class="navigation__burger-box" onclick="togglemenu()" id="header-burger-box">
+            <div class="navigation__burger" id="navigation__burger">
+
+            </div>
+        </div>
+        <img class="top_logo" id="header-logo" src="/img/common/Ayiza-Logo-Cropped.png"/>
+        <div id="open-overlay" onclick="CloseSesameUser(); closesesame()">
+        </div>
+        <div class="header__button-container">
+            <div class="header__button--alerts"><i class="fa fa-bell-o fa-lg fa-fw" aria-hidden="true" ></i></div>
+            <div class="header__button--tasks"><i class="fa fa-tasks fa-lg fa-fw" aria-hidden="true" ></i></div>
+            <div class="header__button--inbox"><i class="fa fa-inbox fa-lg fa-fw" aria-hidden="true" ></i></div>
+            <div class="header__text--user">Lorraine</div>
+            <div class="header__button--user"><i class="fa fa-chevron-right fa-fw" id="user-menu-icon" aria-hidden="true" onclick="ToggleMenuUser()"></i></div>
+            <div class="header__button--signout"><i class="fa fa-power-off fa-lg fa-fw" aria-hidden="true" ></i><span class="signout-tooltip">Log Off</span></div>
+            <!--
+            <i class="material-icons">notifications_none</i>
+            <i class="material-icons">event_note</i>
+            <i class="material-icons">mail_outline</i>
+            <i class="material-icons">account_circle</i>
+            <i class="material-icons">power_settings_new</i>
+-->
+        </div>
+    </div>
+</body>
+</html>

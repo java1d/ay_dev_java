@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ayiza | Global Settings</title>
+    <link rel='shortcut icon' type='image/x-icon' href='../../favicon.ico' />
+    <link rel="stylesheet" href="/css/global_settings.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/font-awesome-min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/global_settings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="navigation__container" id="navcontainer">
+        <div class="navigation__heading">
+            <img class="top_logo" src="/img/common/Ayiza-Logo-Cropped.png">
+            <div class="navigation__burger-box" onclick="togglemenu()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="navigation__list">
+            <li onClick="location.href='../../AY_home/signup.html'">Sign Up</li>
+            <li onClick="location.href='../../AY_home/login.html'">Log In</li>
+        </ul>
+    </div>
+    <div class="user__container" id="usercontainer">
+        <div class="navigation__heading--user">
+            <img class="top_logo" src="/img/common/Ayiza-Logo-Cropped.png">
+            <div class="user__burger-box" onclick="ToggleMenuUser()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="user__list">
+            <li onClick="location.href='../../AY_home/login.html'">Account Settings</li>
+            <li onClick="location.href='../../AY_home/login.html'">Log In As Another User</li>
+            <li onClick="location.href='../../AY_home/xlogin.html'">Log Off</li>
+        </ul>
+    </div>
+    <div class="ay-globalsettings--12col" id="mainpage">
+        <div class="global-header">
+            <div class="navigation__burger-box" onclick="togglemenu()" id="header-burger-box">
+                <div class="navigation__burger" id="navigation__burger">
+
+                </div>
+            </div>
+            <img class="top_logo" id="header-logo" src="/img/common/Ayiza-Logo-Cropped.png">
+            <div id="open-overlay" onclick="CloseSesameUser(); closesesame()">
+            </div>
+            <div class="header__button-container">
+                <div class="header__button--alerts"><i class="fa fa-bell-o fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--tasks"><i class="fa fa-tasks fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--inbox"><i class="fa fa-inbox fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__text--user">Lorraine</div>
+                <div class="header__button--user"><i class="fa fa-chevron-right fa-fw" id="user-menu-icon" aria-hidden="true" onclick="ToggleMenuUser()"></i></div>
+                <div class="header__button--signout"><i class="fa fa-power-off fa-lg fa-fw" aria-hidden="true" i></i><span class="signout-tooltip">Log Off</span></div>
+            </div>
+        </div>
+
+        <div class="global-container-one">
+            <ul class="global-container-one__breadcrumbs">
+                <li><a onclick="location.href = '../../AY_application/home.html'">Home</a></li>
+                <li><a onclick="location.href = '../configuration_manager.html'">Configuration Manager</a></li>
+                <li><a>Global Settings</a></li>
+            </ul>
+        </div>
+        <div class="container--main">
+            <div class="global-container-two">
+                <div class="global-container-two__heading-container">
+                    <span class="global-container-two__heading-text">Global Settings</span>
+                    </div>
+            
+            </div>
+            <div class="global-container-three global-flex-column">
+            <div class="global-boxlist__container">
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading">
+                        Currencies
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-money"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                    250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_languages/languages.html'">
+                    <div class="boxlist-item__heading">
+                        Languages
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-language"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                    17</div>
+                </div>
+                <div class="global-boxlist__item">
+                    <div class="boxlist-item__heading">
+                        Users
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-users"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                    922</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Countries
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-globe"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    805</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Clients
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-id-card"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    41</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Addresses
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-address-book"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    576</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Inventory
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-archive"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    311</div>
+                </div>
+                <div class="global-boxlist__item">
+                    <div class="boxlist-item__heading">
+                        Inventory
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-archive"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    311</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Clients
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-id-card"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    41</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Addresses
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-address-book"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    576</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Inventory
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-archive"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    311</div>
+                </div>
+                <div class="global-boxlist__item">
+                    <div class="boxlist-item__heading">
+                        Inventory
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-archive"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    311</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Clients
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-id-card"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    41</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Addresses
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-address-book"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    576</div>
+                </div>
+                <div class="global-boxlist__item">
+                     <div class="boxlist-item__heading">
+                        Inventory
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-archive"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    311</div>
+                </div>
+                <div class="global-boxlist__item">
+                    <div class="boxlist-item__heading">
+                        Inventory
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                       <i class="fa fa-3x fa-fw fa-archive"></i> 
+                    </div>
+                    <div class="boxlist-item__counter">
+                    311</div>
+                </div>
+            </div>
+            </div>
+            <div class="global-container-four">
+
+            </div>
+            <div class="global-continer-five">
+
+            </div>
+        
+                <div class="global-footer">
+            <ul class="footer__text">
+    <li class="footer__text--align" onclick="systemPopup()">System Details</li>
+  </ul>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="deletepopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Delete Selected Items</span>
+            <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+            <div class="global-popup__buttons">
+                <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()">
+            </div>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="addpopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Add New Item</span>
+            <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+            <div id="global-popup__data">
+                <input type="text" placeholder="Language Code" class="global-popup__input">
+                <input type="text" placeholder="Language Text" class="global-popup__input">
+            </div>
+            <div class="global-popup__buttons">
+                <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()">
+            </div>
+        </div>
+    </div>
+         <div id="to-top" onclick="gototop()"><span><i class="fa fa-arrow-up fa-lg" aria-hidden="true"i></i></span>
+    </div>
+</body>
+
+</html>

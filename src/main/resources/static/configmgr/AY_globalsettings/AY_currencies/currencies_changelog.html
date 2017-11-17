@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ayiza | Add New - currencies</title>
+    <link rel="stylesheet" href="../../../AY_assets/css/global_settings.css">
+    <link rel="stylesheet" href="../../../AY_assets/css/common.css">
+    <link rel="stylesheet" href="../../../AY_assets/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../assets/css/font-awesome-min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script type="text/javascript" src="../../../AY_assets/js/common.js"></script>
+    <script type="text/javascript" src="../../../AY_assets/js/global_settings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="navigation__container" id="navcontainer">
+        <div class="navigation__heading">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="navigation__burger-box" onclick="closesesame()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="navigation__list">
+            <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+            <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+            <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+        </ul>
+    </div>
+    <div class="user__container" id="usercontainer">
+        <div class="user__heading">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="user__burger-box" onclick="CloseSesameUser()">
+                <div class="user__burger--close"></div>
+            </div>
+        </div>
+        <ul class="user__list" id="user__list">
+            <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+            <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+            <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+        </ul>
+    </div>
+    <div class="ay-globalsettings--12col" id="mainpage">
+        <div class="global-header">
+            <div class="navigation__burger-box" onclick="togglemenu()" id="header-burger-box">
+                <div class="navigation__burger" id="navigation__burger">
+
+                </div>
+            </div>
+            <img class="top_logo" id="header-logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <!--
+            <div class="navigation__menu" id="navigation__menu">
+                <ul class="navigation__list" id="navigation__list">
+                    <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+                    <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+                    <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+                    <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+                    <li onClick="location.href='pages/sign_up/signup.html'">Sign Up</li>
+                    <li onClick="location.href='pages/sign_in/login.html'">Log In</li>
+                </ul>
+            </div>
+-->
+            <div id="open-overlay" onclick="closesesame(); CloseSesameUser()">
+            </div>
+            <div class="header__button-container">
+                <div class="header__button--alerts"><i class="fa fa-bell-o fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--tasks" onclick="location.href='updaterow_currencies.php'"><i class="fa fa-tasks fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--inbox"><i class="fa fa-inbox fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__text--user" onclick="ToggleMenuUser()">Lorraine</div>
+                <div class="header__button--user"><i class="fa fa-chevron-down fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--signout"><i class="fa fa-power-off fa-lg fa-fw" aria-hidden="true" i></i><span class="signout-tooltip">Log Off</span></div>
+                <!--
+                <i class="material-icons">notifications_none</i>
+                <i class="material-icons">event_note</i>
+                <i class="material-icons">mail_outline</i>
+                <i class="material-icons">account_circle</i>
+                <i class="material-icons">power_settings_new</i>
+-->
+            </div>
+        </div>
+
+        <div class="global-container-one">
+            <ul class="global-container-one__breadcrumbs">
+                <li><a>Home</a></li>
+                <li><a>Configuration Manager</a></li>
+                <li><a>Global Settings</a></li>
+                <li><a>currencies</a></li>
+            </ul>
+        </div>
+        <div class="container--main">
+            <form action="../../../pages/global_settings/add_currencies/addrow_currencies.php" method="post">
+            <div class="global-container-two">
+                <div class="global-container-two__heading-container">
+                    <span class="global-container-two__heading-text">Manage currencies - Change Log</span>
+                    </div>
+                <div class="global-container-two__action-container">
+                    
+                    <button type="button" class="global-container-three__button grey-button" onclick="location.href='currencies.html'"><div class="global-button__text">Back</div><i class="fa fa-arrow-circle-o-left fa-fw" aria-hidden="true"i></i></button>
+                    <button type="reset" class="global-container-three__button orange-button"><div class="global-button__text">Print</div><i class="fa fa-print fa-fw" aria-hidden="true"i></i></button>
+                    <button type="button" class="global-container-three__button green-button button_last" onclick=""><div class="global-button__text">Export CSV</div><i class="fa fa-download fa-fw" aria-hidden="true"i></i></button>
+                </div>
+            
+            </div>
+            <div class="global-container-three">
+                <select style="margin-right: 2rem" onchange="showDateBoxes()" id="timeselect">
+                    <option>Today</option>
+                    <option>Yesterday</option>
+                    <option>Last Week</option>
+                    <option>Last Month</option>
+                    <option>Last Quarter</option>
+                    <option>Last Six Months</option>
+                    <option>Last Year</option>
+                    <option>User Selection</option>
+                </select>
+                <div id="dateselect">
+                <label style="margin-right: 0.8rem">From: </label>
+                <input disabled type="date" style="margin-right: 2rem"/>
+                <label style="margin-right: 0.8rem">To: </label>
+                <input disabled type="date"/>
+                </div>
+            </div>
+                </form>
+            <div class="global-container-four">
+                <table class="global-container-four__table tablesorter" id="global-table">
+                   <thead>
+                    <tr>
+                        <th>Field ID</th>
+                        <th>Old Value</th>
+                        <th>New Value</th>
+                        <th>Created By</th>
+                        <th>Created On</th>
+                        <th>Created Time</th>
+                        <th>Changed By</th>
+                        <th>Changed On</th>
+                        <th>Changed Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                </tbody>
+                </table>
+            </div>
+            <div class="global-continer-five">
+
+            </div>
+        
+        <div class="global-footer"></div>
+    </div>
+    <div class="global-popup__modal" id="deletepopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Delete Selected Items</span>
+            <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+            <div class="global-popup__buttons">
+                <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()">
+            </div>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="addpopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Add New Item</span>
+            <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+            <div id="global-popup__data">
+                <input type="text" placeholder="currency Code" class="global-popup__input">
+                <input type="text" placeholder="currency Text" class="global-popup__input">
+            </div>
+            <div class="global-popup__buttons">
+                <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

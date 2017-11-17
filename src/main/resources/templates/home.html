@@ -1,0 +1,238 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ayiza | Home</title>
+    <div th:replace="fragments/header :: header"/>
+</head>
+
+<body onload="TableCount(); ShowXTableRows(); getupdateCurrentRow()">
+<div class="navigation__container" id="navcontainer">
+<div class="navigation__heading">
+<img class="top_logo" src="/img/common/Ayiza-Logo-Cropped.png"/>
+        <div class="navigation__burger-box" onclick="togglemenu()">
+            <div class="navigation__burger--close"></div>
+        </div>
+    </div>
+    <ul class="navigation__list" id="navigation__list">
+        <li onClick="location.href='#'">Accounting</li>
+        <li onClick="location.href='#'">Buy</li>
+        <li onClick="location.href='#'">Data</li>
+        <li onClick="location.href='#'">Make</li>
+        <li onClick="location.href='#'">Move &amp; Store</li>
+        <li onClick="location.href='#'">People</li>
+        <li onClick="location.href='#'">Reporting</li>
+        <li onClick="location.href='#'">Sell</li><!--Seperate-->
+        <li onClick="location.href='configmgr.html'">Configuration Manager</li>
+        <li onClick="location.href='gethelp/get_help.html'">Get Help</li>
+        <!--            <li onClick="location.href='#'">Sign</li>-->
+    </ul>
+</div>
+<div th:replace="fragments/navigation :: navcontainer"/>
+
+<div th:replace="fragments/navigation :: usercontainer"/>
+<div class="ay-globalsettings--12col" id="mainpage">
+
+    <div th:replace="fragments/navigation :: toolbar"/>
+
+    <div class="global-container-one">
+        <ul class="global-container-one__breadcrumbs">
+            <li><a>Home</a></li>
+        </ul>
+    </div>
+    <div class="container--main">
+        <div class="global-container-two paddingbottomsmall">
+            <div class="global-container-two__heading-container">
+                <ul class="global-container-two__quicklinks">
+                    <li><a>Dashboard</a></li>
+                    <li><a>Favourites</a></li>
+                    <li><a>Recently Used</a></li>
+                    <li><a>Recommended</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="global-container-three global-flex-column">
+            <div class="global-boxlist__container">
+                <div class="global-boxlist__item" onClick="location.href='AY_globalsettings/global_settings.html'">
+                    <div class="boxlist-item__heading--small">
+                        Bank &amp;   Cash
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-university"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Total Receivables
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-money"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Total Payables
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-money"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Total Assets
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-bar-chart"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Total Headcount
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-sitemap"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Total Sales
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-line-chart"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Total Purchases
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-area-chart"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Total Taxes
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-calculator"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Inventory
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-archive"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Setup Diary
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-address-book"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Action Desktop
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-desktop"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+                <div class="global-boxlist__item" onClick="location.href='AY_currencies/currencies.html'">
+                    <div class="boxlist-item__heading--small">
+                        Key Deadlines
+                    </div>
+                    <div class="boxlist-item__iconbox">
+                        <i class="fa fa-3x fa-fw fa-key"></i>
+                    </div>
+                    <div class="boxlist-item__counter">
+                        250</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="global-footer">
+        <!--            <p onclick="toggleShowBox()">click me</p>-->
+        <ul class="footer__text">
+            <li class="footer__text--align" onclick="systemPopup()">System Details</li>
+            <!--<li class="footer__text-align">|</li>
+            <li class="footer__text-align"><a class="footer__pr" onclick="privacyPopup()">Privacy</a></li>
+            <li class="footer__text-align">|</li>
+            <li class="footer__text-align" onclick="tandcPopup()">Terms and Conditions</li>-->
+        </ul>
+    </div>
+</div>
+<div class="global-popup__modal" id="viewpopupmodal">
+    <div class="global-popup__box">
+        <span class="global-popup__heading" id="viewpopupheading">Record Details</span>
+        <div class="global-popup__body" id="viewpopupbody"></div>
+        <div class="global-popup__buttons">
+            <input type="button" value="Close" class="global-popup__cancel" onclick="closeViewPopup()"/>
+        </div>
+    </div>
+</div>
+<div class="global-popup__modal" id="deletepopupmodal">
+    <div class="global-popup__box">
+        <span class="global-popup__heading">Delete Selected Items</span>
+        <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+        <div class="global-popup__buttons">
+            <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()"/>
+            <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()"/>
+        </div>
+    </div>
+</div>
+<div class="global-popup__modal" id="addpopupmodal">
+    <div class="global-popup__box">
+        <span class="global-popup__heading">Add New Item</span>
+        <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+        <div id="global-popup__data">
+            <input type="text" placeholder="Language Code" class="global-popup__input"/>
+            <input type="text" placeholder="Language Text" class="global-popup__input"/>
+        </div>
+        <div class="global-popup__buttons">
+            <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()"/>
+            <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()"/>
+        </div>
+    </div>
+</div>
+
+<div class="global-popup__modal" id="globalpopup">
+    <div class="global-popup__box">
+        <span class="global-popup__heading" id="gpheading"></span>
+        <span class="global-popup__text" id="gptext"></span>
+        <div class="global-popup__buttons" id="gpbuttons">
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,98 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ayiza | Settings - Languages</title>
+    <div th:replace="fragments/header :: header"/>
+    <script type="text/javascript" src="/js/languages.js"/>
+</head>
+
+<body>
+    <div th:replace="fragments/navigation :: navcontainer"/>
+
+    <div th:replace="fragments/navigation :: usercontainer"/>
+    <div class="ay-globalsettings--12col" id="mainpage">
+        <div th:replace="fragments/navigation :: toolbar"/>
+        <div class="global-container-one">
+            <ul class="global-container-one__breadcrumbs">
+                <li><a>Home</a></li>
+                <li><a>Configuration Manager</a></li>
+                <li><a>Global Settings</a></li>
+                <li><a>Languages</a></li>
+            </ul>
+        </div>
+        <div class="container--main">
+            <form action="" method="post">
+            <div class="global-container-two">
+                <div class="global-container-two__heading-container">
+                    <span class="global-container-two__heading-text">Manage languages - Add</span>
+                    </div>
+                <div class="global-container-two__action-container">
+                    
+                    <button type="button" class="global-container-three__button grey-button" onclick="location.href='languages.html'"><div class="global-button__text">Back</div><i class="fa fa-arrow-circle-o-left fa-fw" aria-hidden="true"></i></button>
+                    <button type="reset" class="global-container-three__button orange-button"><div class="global-button__text">Clear</div><i class="fa fa-times-circle-o fa-fw" aria-hidden="true"></i></button>
+                    <button id="savebtn" type="button" class="global-container-three__button green-button button_last"><div class="global-button__text">Save</div><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i></button>
+                </div>
+            
+            </div>
+            <div class="global-container-three global-flex-column">
+
+                    <fieldset>
+                    <div class="global-page__input-container">
+                        <label class="global-page__label">Language Code</label>
+                        <input id="languageCode" required="true" type="text" name="languageCode" placeholder="Max: 3 Characters" class="global-page__input" maxlength="3"/>
+                        <div class="help-tip"><p>A 1, 2 or 3 character code which must be unique</p></div>
+                    </div>       
+                    <div class="global-page__input-container">
+                        <label class="global-page__label">Language Text</label>
+                        <input id="languageText" required="true" type="text" name="languageText" placeholder="Max: 70 Characters" class="global-page__input" maxlength="70"/>
+                        <div class="help-tip"><p>The name of the language</p></div>
+                    </div>
+                    </fieldset>
+<!--
+                <div class="global-page__input-container">
+                        <label class="global-page__label">Currency</label>
+                        <select required name="languageText" placeholder="Max: 70 Characters" class="global-page__input global-page__input-optional">
+                        <option>a</option>
+                        <option>b</option>
+                        <option>c</option>
+					</select>
+                    </div>
+-->
+            </div>
+            </form>
+            <div class="global-container-four">
+
+            </div>
+            <div class="global-continer-five">
+
+            </div>
+        </div>
+        <div class="global-footer"></div>
+    </div>
+    <div class="global-popup__modal" id="deletepopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Delete Selected Items</span>
+            <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+            <div class="global-popup__buttons">
+                <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()"/>
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()"/>
+            </div>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="addpopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Add New Item</span>
+            <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+            <div id="global-popup__data">
+                <input type="text" placeholder="Language Code" class="global-popup__input"/>
+                <input type="text" placeholder="Language Text" class="global-popup__input"/>
+            </div>
+            <div class="global-popup__buttons">
+                <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()"/>
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()"/>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

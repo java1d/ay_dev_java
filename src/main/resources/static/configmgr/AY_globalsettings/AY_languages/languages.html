@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ayiza | Settings - Languages</title>
+    <link rel='shortcut icon' type='image/x-icon' href='../../../favicon.ico' />
+    <link rel="stylesheet" href="/css/global_settings.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/font-awesome-min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/global_settings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../AY_assets/datatables/datatables.min.css"/>
+ 	<script type="text/javascript" src="../../../AY_assets/datatables/datatables.min.js"></script>
+ 	<script type="text/javascript" src="../../../AY_assets/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+    <script type="text/javascript" src="../../../pages/global_settings/add_languages/languages.json"></script>
+</head>
+
+<body onload="TableCount(); ShowXTableRows(); getupdateCurrentRow()">
+    
+<script>
+    $(document).ready(function() {
+        $("#global-table").tablesorter({
+           /* sortList: [
+                [0, 0]
+            ],*/
+            headers: {
+                0: {
+                    sorter: false
+                },
+                3: {
+                    sorter: false
+                }
+            }
+        });
+        $("#global-table").bind("sortStart", function() {
+            $("#global-table").show();
+        }).bind("sortEnd", function() {
+            ShowXTableRows()
+        });
+    });
+</script>
+
+    <div class="navigation__container" id="navcontainer">
+        <div class="navigation__heading">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="navigation__burger-box" onclick="togglemenu()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="navigation__list">
+            <li onClick="location.href='../../../AY_home/signup.html'">Sign Up</li>
+            <li onClick="location.href='../../../AY_home/login.html'">Log In</li>
+        </ul>
+    </div>
+    <div class="user__container" id="usercontainer">
+        <div class="navigation__heading--user">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="user__burger-box" onclick="ToggleMenuUser()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="user__list">
+            <li onClick="location.href='pages/sign_up/signup.html'">Account Settings</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In As Another User</li>
+            <li onClick="location.href='pages/sign_up/signup.html'">Log Off</li>
+        </ul>
+    </div>
+    <div class="ay-globalsettings--12col" id="mainpage">
+        <div class="global-header">
+            <div class="navigation__burger-box" onclick="togglemenu()" id="header-burger-box">
+                <div class="navigation__burger" id="navigation__burger">
+
+                </div>
+            </div>
+            <img class="top_logo" id="header-logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div id="open-overlay" onclick="CloseSesameUser(); closesesame()">
+            </div>
+            <div class="header__button-container">
+                <div class="header__button--alerts"><i class="fa fa-bell-o fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--tasks"><i class="fa fa-tasks fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--inbox"><i class="fa fa-inbox fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__text--user">Lorraine</div>
+                <div class="header__button--user"><i class="fa fa-chevron-right fa-fw" id="user-menu-icon" aria-hidden="true" onclick="ToggleMenuUser()"></i></div>
+                <div class="header__button--signout"><i class="fa fa-power-off fa-lg fa-fw" aria-hidden="true" i></i><span class="signout-tooltip">Log Off</span></div>
+                <!--
+                <i class="material-icons">notifications_none</i>
+                <i class="material-icons">event_note</i>
+                <i class="material-icons">mail_outline</i>
+                <i class="material-icons">account_circle</i>
+                <i class="material-icons">power_settings_new</i>
+-->
+            </div>
+        </div>
+
+        <div class="global-container-one">
+            <ul class="global-container-one__breadcrumbs">
+                <li><a>Home</a></li>
+                <li><a onclick="location.href = '../../configuration_manager.html'">Configuration Manager</a></li>
+                <li><a onclick="location.href = '../global_settings.html'">Global Settings</a></li>
+                <li><a>Languages</a></li>
+            </ul>
+        </div>
+        <div class="container--main">
+            <div class="global-container-two">
+                <div class="global-container-two__heading-container">
+                    <span class="global-container-two__heading-text">Manage languages</span>
+<!--
+                    <div class="fa-container--inline fa-stack" style="display: inline-block;">
+                        <i class="fa fa-circle-thin
+                          fa-stack-2x" aria-hidden="true"></i>
+                        <i class="fa fa-cog fa-stack-1x" aria-hidden="true"></i>
+                    </div>
+-->
+                </div>
+                <div class="global-container-two__action-container">
+                    <button class="global-container-two__action-button" id="quickactions" onclick="ToggleQuickActions()" onblur="">Quick Actions<i class="fa fa-chevron-down action-button__icon" id="quick-action-icon" aria-hidden="true"></i></button>
+                    <div class="global-container-two__action-dropdown" id="quick-action-dropdown">
+                        <span onclick="QuickPrintTable()"><i class="fa fa-print fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"i></i>Print</span>
+                        <span onclick="location.href='languages_changelog.html'"><i class="fa fa-list-alt fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"i></i>Change Log</span>
+                        <span><i class="fa fa-file-pdf-o fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"i></i>Export PDF</span>
+                        <span onclick="location.href='languages_import.html'"><i class="fa fa-upload fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"i></i>Import CSV</span>
+                    </div>
+                </div>
+            </div>
+            <div class="global-container-three">
+                <button class="global-container-three__button dodgerblue-button" onclick="location.href='languages_add.html'"><div class="global-button__text">Add</div><i class="fa fa-plus fa-fw" aria-hidden="true"i></i></button>
+                <button class="global-container-three__button crimson-button" onclick="ShowDeletePopup()"><div class="global-button__text">Delete</div><i class="fa fa-trash fa-fw" aria-hidden="true"i></i></button>
+                <div class="global-container-three__show-container"><span class="show-dropdown__text"><div class="global-button__text">Show</div></span><label id="showicon" class="show-dropdown__icon" onclick="ShowXTableRows()">
+                <select class="show-dropdown__box" id="showamount" onclick="TableCount(); toggleShowBox()" onblur="toggleShowBox('reset')" onchange="TablePageReset()">
+                    <option>6</option>
+                    <option>12</option>
+                    <option>20</option>
+                    <option>30</option>
+<!--                    <option></option>-->
+                    <option>All</option>
+                    </select>
+                    </label></div>
+                <div class="search-table-container">
+                    <span class="search-table__icon">
+                    <i class="fa fa-search fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"i></i></span>
+                    <input type="search" class="search-table__box fa" id="tablesearch" onkeyup="SearchGlobalTable()" onclick="expandSearchBox()" onblur="shortenSearchBox()" placeholder="Search">
+                    <!--                    <button class="global-container-three__button" onclick="ShowAddPopup()"><div class="global-button__text">Add</div><i class="fa fa-search fa-fw" aria-hidden="true"i></i></button>-->
+                </div>
+            </div>
+            <div class="global-container-four">
+                <table class="global-container-four__table tablesorter" id="global-table">
+                   <thead>
+                    <tr>
+                        <th> <!--or change to td-->
+                            <div class="global-table__checkbox"><input type="checkbox" value="0" id="gl-ta-checkbox" name="" onclick="SelectAll(this)"><label for="gl-ta-checkbox"></label></div>
+                        </th>
+                        <th>Language Code</th>
+                        <th>Language Text</th>
+                        <th style="float: right; margin-right: 4.8rem; padding-top: 0.5rem;">Actions</th> <!--or change to td-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="1" id="gl-ta-checkbox1" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox1"></label></div>
+                        </td>
+                        <td>lcA</td>
+                        <td>Test1</td>
+                        <td><div class="global-table__button-container"><button id="buttonview1" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit1" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy1" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin1" class="global-table__button--deleterow" onclick="DeleteCurrent(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="2" id="gl-ta-checkbox2" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox2"></label></div>
+                        </td>
+                        <td>lcB</td>
+                        <td>Test2</td>
+                        <td><div class="global-table__button-container"><button id="buttonview2" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit2" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy2" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin2" class="global-table__button--deleterow" onclick="deleteSinglePopup(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="3" id="gl-ta-checkbox3" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox3"></label></div>
+                        </td>
+                        <td>lcC</td>
+                        <td>Test3</td>
+                        <td><div class="global-table__button-container"><button id="buttonview3" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit3" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy3" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin3" class="global-table__button--deleterow" onclick="deleteSinglePopup(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="4" id="gl-ta-checkbox4" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox4"></label></div>
+                        </td>
+                        <td>lcD</td>
+                        <td>Test4</td>
+                        <td><div class="global-table__button-container"><button id="buttonview4" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit4" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy4" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin4" class="global-table__button--deleterow" onclick="deleteSinglePopup(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="5" id="gl-ta-checkbox5" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox5"></label></div>
+                        </td>
+                        <td>lcE</td>
+                        <td>Test5</td>
+                        <td><div class="global-table__button-container"><button id="buttonview5" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit5" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy4" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin5" class="global-table__button--deleterow" onclick="deleteSinglePopup(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="6" id="gl-ta-checkbox6" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox6"></label></div>
+                        </td>
+                        <td>lcF</td>
+                        <td>Test6</td>
+                        <td><div class="global-table__button-container"><button id="buttonview5" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit5" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy4" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin5" class="global-table__button--deleterow" onclick="deleteSinglePopup(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="7" id="gl-ta-checkbox7" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox7"></label></div>
+                        </td>
+                        <td>lcG</td>
+                        <td>Test7</td>
+                        <td><div class="global-table__button-container"><button id="buttonview5" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit5" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy4" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin5" class="global-table__button--deleterow" onclick="deleteSinglePopup(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="global-table__checkbox"><input type="checkbox" value="8" id="gl-ta-checkbox8" name="" onclick="UncheckSelectAll()"><label for="gl-ta-checkbox8"></label></div>
+                        </td>
+                        <td>lcI</td>
+                        <td>Test8</td>
+                        <td><div class="global-table__button-container"><button id="buttonview5" class="global-table__button--viewrow" onclick="pushCurrentRow(this)"><i class="fa fa-search global-table__button--icon" aria-hidden="true"></i></button><button id="buttonedit5" class="global-table__button--editrow" onclick="pushCurrentRow(this)"><i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i></button><button id="buttoncopy4" class="global-table__button--copyrow" onclick="pushCurrentRow(this)"><i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i></button><button id="buttonbin5" class="global-table__button--deleterow" onclick="deleteSinglePopup(this)"><i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i></button></div></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            <div class="global-continer-five">
+                <div class="global-record-count">
+                    <span class="global-record-count__text" id="globaltablecount">Showing results</span>
+                </div>
+                <div class="global-record-nav"><input type="button" class="global-record-nav__button fa fa-input" value="&#xf053" onclick="TablePageDown(), TableCount(), ShowXTableRows()" /><span class="global-record-nav__count" id="tablepagecount">1</span><input type="button" class="global-record-nav__button fa fa-input" value="&#xf054" onclick="TablePageUp(), TableCount(), ShowXTableRows()" /></div>
+            </div>       
+        </div>
+        <div class="global-footer">
+<!--            <p onclick="toggleShowBox()">click me</p>-->
+            <ul class="footer__text">
+    <li class="footer__text--align" onclick="systemPopup()">System Details</li>
+  </ul>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="viewpopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading" id="viewpopupheading">Record Details</span>
+            <div class="global-popup__body" id="viewpopupbody"></div>
+            <div class="global-popup__buttons">
+                <input type="button" value="Close" class="global-popup__cancel" onclick="closeViewPopup()">
+            </div>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="deletepopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Delete Selected Items</span>
+            <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+            <div class="global-popup__buttons">
+                <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()">
+            </div>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="addpopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Add New Item</span>
+            <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+            <div id="global-popup__data">
+                <input type="text" placeholder="Language Code" class="global-popup__input">
+                <input type="text" placeholder="Language Text" class="global-popup__input">
+            </div>
+            <div class="global-popup__buttons">
+                <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()">
+            </div>
+        </div>
+    </div>
+    
+    <div class="global-popup__modal" id="globalpopup">
+        <div class="global-popup__box">
+            <span class="global-popup__heading" id="gpheading"></span>
+            <span class="global-popup__text" id="gptext"></span>
+            <div class="global-popup__buttons" id="gpbuttons">
+                
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

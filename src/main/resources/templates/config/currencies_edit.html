@@ -1,0 +1,120 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ayiza | Settings - Currencies</title>
+    <div th:replace="fragments/header :: header"/>
+    <script type="text/javascript" src="/js/currencies.js"/>
+</head>
+
+<body>
+
+    <div th:replace="fragments/navigation :: navcontainer"/>
+
+    <div th:replace="fragments/navigation :: usercontainer"/>
+
+    <div class="ay-globalsettings--12col" id="mainpage">
+        <div th:replace="fragments/navigation :: toolbar"/>
+
+        <div class="global-container-one">
+            <ul class="global-container-one__breadcrumbs">
+                <li><a>Home</a></li>
+                <li><a>Configuration Manager</a></li>
+                <li><a>Global Settings</a></li>
+                <li><a>Currencies</a></li>
+            </ul>
+        </div>
+        <div class="container--main">
+            <form action="" method="post" id="editform">
+            <div class="global-container-two">
+                <div class="global-container-two__heading-container">
+                    <span class="global-container-two__heading-text">Manage currencies - Edit</span>
+                </div>
+                <div class="global-container-two__action-container">
+                        <button type="button" class="global-container-three__button grey-button" onclick="location.href='../currencies.html'">
+                            <div class="global-button__text">Back</div>
+                            <i class="fa fa-arrow-circle-o-left fa-fw" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" onclick="clearEditPage()" class="global-container-three__button orange-button">
+                            <div class="global-button__text">Clear</div>
+                            <i class="fa fa-times-circle-o fa-fw" aria-hidden="true"></i>
+                        </button>
+                        <button id="updatebtn" type="button" class="global-container-three__button green-button">
+                            <div class="global-button__text">Update</div>
+                            <i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>
+                        </button>
+                </div>
+            </div>
+            <div class="global-container-three global-flex-column" id="input-area">
+                <fieldset>
+                <!--<div class="search-table-container">-->
+                <div class="global-page__input-container">
+                    <label class="global-page__label">Search Language</label>
+                    <span style="width:15px;"></span>
+                    <span class="search-table__icon"><i class="fa fa-search fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"></i></span>
+                    <input type="search" class="search-table__box fa" id="searchbtn" onkeyup="searchLanguage(this)" onclick="expandSearchBox()" onblur="shortenSearchBox()" placeholder="Search"/>
+                    <!--                    <button class="global-container-three__button" onclick="ShowAddPopup()"><div class="global-button__text">Add</div><i class="fa fa-search fa-fw" aria-hidden="true"i></i></button>-->
+                </div>
+                <div class="global-page__input-container">
+                    <label for="languageId" class="global-page__label">Language</label>
+                    <span style="width:15px;"></span>
+                    <select id="languageId" name="language" required="required" style="margin: 1rem 0 0.5rem 0;">
+                        <option th:value="${currency.language.id}" th:text="${currency.language.text}" disabled="disabled" selected="selected" placeholder="Max: 3 Characters" class="global-page__input" maxlength="3">
+                            Select Language
+                        </option>
+                    </select>
+                    <!--<input id="languageText" required="true" type="text" readonly="true" name="languageText" placeholder="Max: 3 Characters" class="global-page__input" maxlength="3"-->
+                           <!--th:value="${currency.language.text}"/>-->
+                    <div class="help-tip"><p>An ISO 3 character code which must be unique</p></div>
+                </div>
+                <div class="global-page__input-container">
+                    <input id="currencyId" type="hidden" th:value="${currency.id}"/>
+                    <label for="currencyCode" class="global-page__label">Currency Code</label>
+                    <input id="currencyCode" required="true" type="text" name="currencyCode" placeholder="Max: 3 Characters" class="global-page__input" maxlength="3"
+                           th:value="${currency.code}"/>
+                    <div class="help-tip"><p>An ISO 3 character code which must be unique</p></div>
+                </div>
+                <div class="global-page__input-container">
+                    <label for="currencyText" class="global-page__label">Currency Text</label>
+                    <input id="currencyText" required="true" type="text" name="currencyText" placeholder="Max: 70 Characters" class="global-page__input" maxlength="70"
+                           th:value="${currency.text}"/>
+                    <div class="help-tip"><p>The name of the currency</p></div>
+                </div>
+                </fieldset>
+            </div>
+            </form>
+            <div class="global-container-four">
+
+            </div>
+            <div class="global-continer-five">
+
+            </div>
+        </div>
+        <div class="global-footer"></div>
+    </div>
+    <div class="global-popup__modal" id="deletepopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Delete Selected Items</span>
+            <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+            <div class="global-popup__buttons">
+                <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()"/>
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()"/>
+            </div>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="addpopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Add New Item</span>
+            <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+            <div id="global-popup__data">
+                <input type="text" placeholder="Language Code" class="global-popup__input"/>
+                <input type="text" placeholder="Language Text" class="global-popup__input"/>
+            </div>
+            <div class="global-popup__buttons">
+                <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()"/>
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()"/>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

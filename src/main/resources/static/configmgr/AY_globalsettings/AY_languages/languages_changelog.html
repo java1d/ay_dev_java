@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ayiza | Add New - Languages</title>
+    <link rel="stylesheet" href="../../../AY_assets/css/global_settings.css">
+    <link rel="stylesheet" href="../../../AY_assets/css/common.css">
+    <link rel="stylesheet" href="../../../AY_assets/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../assets/css/font-awesome-min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script type="text/javascript" src="../../../AY_assets/js/common.js"></script>
+    <script type="text/javascript" src="../../../AY_assets/js/global_settings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+        <div class="navigation__container" id="navcontainer">
+        <div class="navigation__heading">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="navigation__burger-box" onclick="togglemenu()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="navigation__list">
+            <li onClick="location.href='../../../AY_home/signup.html'">Sign Up</li>
+            <li onClick="location.href='../../../AY_home/login.html'">Log In</li>
+        </ul>
+    </div>
+    <div class="user__container" id="usercontainer">
+        <div class="navigation__heading--user">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="user__burger-box" onclick="ToggleMenuUser()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="user__list">
+            <li onClick="location.href='pages/sign_up/signup.html'">Account Settings</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In As Another User</li>
+            <li onClick="location.href='pages/sign_up/signup.html'">Log Off</li>
+        </ul>
+    </div>
+    <div class="ay-globalsettings--12col" id="mainpage">
+        <div class="global-header">
+            <div class="navigation__burger-box" onclick="togglemenu()" id="header-burger-box">
+                <div class="navigation__burger" id="navigation__burger">
+
+                </div>
+            </div>
+            <img class="top_logo" id="header-logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div id="open-overlay" onclick="CloseSesameUser(); closesesame()">
+            </div>
+            <div class="header__button-container">
+                <div class="header__button--alerts"><i class="fa fa-bell-o fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--tasks"><i class="fa fa-tasks fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--inbox"><i class="fa fa-inbox fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__text--user">Lorraine</div>
+                <div class="header__button--user"><i class="fa fa-chevron-right fa-fw" id="user-menu-icon" aria-hidden="true" onclick="ToggleMenuUser()"></i></div>
+                <div class="header__button--signout"><i class="fa fa-power-off fa-lg fa-fw" aria-hidden="true" i></i><span class="signout-tooltip">Log Off</span></div>
+                <!--
+                <i class="material-icons">notifications_none</i>
+                <i class="material-icons">event_note</i>
+                <i class="material-icons">mail_outline</i>
+                <i class="material-icons">account_circle</i>
+                <i class="material-icons">power_settings_new</i>
+-->
+            </div>
+        </div>
+
+        <div class="global-container-one">
+            <ul class="global-container-one__breadcrumbs">
+                <li><a>Home</a></li>
+                <li><a>Configuration Manager</a></li>
+                <li><a>Global Settings</a></li>
+                <li><a>Languages</a></li>
+            </ul>
+        </div>
+        <div class="container--main">
+            <form action="../../../pages/global_settings/add_languages/addrow_languages.php" method="post">
+            <div class="global-container-two">
+                <div class="global-container-two__heading-container">
+                    <span class="global-container-two__heading-text">Manage languages - Change Log</span>
+                    </div>
+                <div class="global-container-two__action-container">
+                    
+                    <button type="button" class="global-container-three__button grey-button" onclick="location.href='languages.html'"><div class="global-button__text">Back</div><i class="fa fa-arrow-circle-o-left fa-fw" aria-hidden="true"i></i></button>
+                    <button type="reset" class="global-container-three__button orange-button"><div class="global-button__text">Print</div><i class="fa fa-print fa-fw" aria-hidden="true"i></i></button>
+                    <button type="button" class="global-container-three__button green-button button_last" onclick=""><div class="global-button__text">Export CSV</div><i class="fa fa-download fa-fw" aria-hidden="true"i></i></button>
+                </div>
+            
+            </div>
+            <div class="global-container-three">
+                <select style="margin-right: 2rem" onchange="showDateBoxes()" id="timeselect">
+                    <option>Today</option>
+                    <option>Yesterday</option>
+                    <option>Last Week</option>
+                    <option>Last Month</option>
+                    <option>Last Quarter</option>
+                    <option>Last Six Months</option>
+                    <option>Last Year</option>
+                    <option>User Selection</option>
+                </select>
+                <div id="dateselect">
+                <label style="margin-right: 0.8rem">From: </label>
+                <input disabled type="date" style="margin-right: 2rem"/>
+                <label style="margin-right: 0.8rem">To: </label>
+                <input disabled type="date"/>
+                </div>
+            </div>
+                <div class="global-container-three__show-container paddingnone"><span class="show-dropdown__text"><div class="global-button__text">Show</div></span><label id="showicon" class="show-dropdown__icon" onclick="ShowXTableRows()">
+                <select class="show-dropdown__box" id="showamount" onclick="TableCount(); toggleShowBox()" onblur="toggleShowBox('reset')" onchange="TablePageReset()">
+                    <option>6</option>
+                    <option>12</option>
+                    <option>20</option>
+                    <option>30</option>
+<!--                    <option></option>-->
+                    <option>All</option>
+                    </select>
+                    </label></div>
+                </form>
+            <div class="global-container-four">
+                <table class="global-container-four__table tablesorter" id="global-table">
+                   <thead>
+                    <tr>
+                        <th>Field ID</th>
+                        <th>Old Value</th>
+                        <th>New Value</th>
+                        <th>Created By</th>
+                        <th>Created On</th>
+                        <th>Created Time</th>
+                        <th>Changed By</th>
+                        <th>Changed On</th>
+                        <th>Changed Time</th>
+                    </tr>
+                       </thead>
+                       <tbody>
+                    <tr>
+                        <td>language</td>
+                        <td>EA</td>
+                        <td>EN</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:19:45</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:17:33</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>BC</td>
+                        <td>SW</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:24:25</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:37:11</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>GG</td>
+                        <td>IT</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:33:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:10:00</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>PA</td>
+                        <td>KU</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:35:21</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:14:06</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>ZI</td>
+                        <td>DE</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:43:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:22:22</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>EA</td>
+                        <td>EN</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:19:45</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:17:33</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>BC</td>
+                        <td>SW</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:24:25</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:37:11</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>GG</td>
+                        <td>IT</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:33:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:10:00</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>PA</td>
+                        <td>KU</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:35:21</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:14:06</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>ZI</td>
+                        <td>DE</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:43:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:22:22</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>EA</td>
+                        <td>EN</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:19:45</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:17:33</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>BC</td>
+                        <td>SW</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:24:25</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:37:11</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>GG</td>
+                        <td>IT</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:33:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:10:00</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>PA</td>
+                        <td>KU</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:35:21</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:14:06</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>ZI</td>
+                        <td>DE</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:43:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:22:22</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>EA</td>
+                        <td>EN</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:19:45</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:17:33</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>BC</td>
+                        <td>SW</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:24:25</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>06:37:11</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>GG</td>
+                        <td>IT</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:33:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:10:00</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>PA</td>
+                        <td>KU</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:35:21</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:14:06</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>ZI</td>
+                        <td>DE</td>
+                        <td>Lorraine</td>
+                        <td>21-DEC-17</td>
+                        <td>21:43:12</td>
+                        <td>AR Ali</td>
+                        <td>22-DEC-17</td>
+                        <td>07:22:22</td>
+                    </tr>
+                           </tbody>
+                </table>
+            </div>
+            <div class="global-continer-five">
+                <div class="global-record-count">
+                    <span class="global-record-count__text" id="globaltablecount">Showing results</span>
+                </div>
+                <div class="global-record-nav"><input type="button" class="global-record-nav__button fa fa-input" value="&#xf053" onclick="TablePageDown(), TableCount(), ShowXTableRows()" /><span class="global-record-nav__count" id="tablepagecount">1</span><input type="button" class="global-record-nav__button fa fa-input" value="&#xf054" onclick="TablePageUp(), TableCount(), ShowXTableRows()" /></div>
+            </div>       
+        
+        <div class="global-footer"></div>
+    </div>
+    <div class="global-popup__modal" id="deletepopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Delete Selected Items</span>
+            <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+            <div class="global-popup__buttons">
+                <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()">
+            </div>
+        </div>
+    </div>
+    <div class="global-popup__modal" id="addpopupmodal">
+        <div class="global-popup__box">
+            <span class="global-popup__heading">Add New Item</span>
+            <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+            <div id="global-popup__data">
+                <input type="text" placeholder="Language Code" class="global-popup__input">
+                <input type="text" placeholder="Language Text" class="global-popup__input">
+            </div>
+            <div class="global-popup__buttons">
+                <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()">
+                <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

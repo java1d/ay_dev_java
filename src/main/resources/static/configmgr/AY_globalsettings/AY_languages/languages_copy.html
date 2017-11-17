@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ayiza | Copy Current - Languages</title>
+    <link rel="stylesheet" href="../../../AY_assets/css/global_settings.css">
+    <link rel="stylesheet" href="../../../AY_assets/css/common.css">
+    <link rel="stylesheet" href="../../../AY_assets/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../assets/css/font-awesome-min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script type="text/javascript" src="../../../AY_assets/js/common.js"></script>
+    <script type="text/javascript" src="../../../AY_assets/js/global_settings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body onload="getcopyCurrentRow()">
+
+    <div class="navigation__container" id="navcontainer">
+        <div class="navigation__heading">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="navigation__burger-box" onclick="togglemenu()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="navigation__list">
+            <li onClick="location.href='../../../AY_home/signup.html'">Sign Up</li>
+            <li onClick="location.href='../../../AY_home/login.html'">Log In</li>
+        </ul>
+    </div>
+    <div class="user__container" id="usercontainer">
+        <div class="navigation__heading--user">
+            <img class="top_logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div class="user__burger-box" onclick="ToggleMenuUser()">
+                <div class="navigation__burger--close"></div>
+            </div>
+        </div>
+        <ul class="navigation__list" id="user__list">
+            <li onClick="location.href='pages/sign_up/signup.html'">Account Settings</li>
+            <li onClick="location.href='pages/sign_in/login.html'">Log In As Another User</li>
+            <li onClick="location.href='pages/sign_up/signup.html'">Log Off</li>
+        </ul>
+    </div>
+    <div class="ay-globalsettings--12col" id="mainpage">
+        <div class="global-header">
+            <div class="navigation__burger-box" onclick="togglemenu()" id="header-burger-box">
+                <div class="navigation__burger" id="navigation__burger">
+
+                </div>
+            </div>
+            <img class="top_logo" id="header-logo" src="../../../AY_assets/img/common/Ayiza-Logo-Cropped.png">
+            <div id="open-overlay" onclick="CloseSesameUser(); closesesame()">
+            </div>
+            <div class="header__button-container">
+                <div class="header__button--alerts"><i class="fa fa-bell-o fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--tasks"><i class="fa fa-tasks fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__button--inbox"><i class="fa fa-inbox fa-lg fa-fw" aria-hidden="true" i></i></div>
+                <div class="header__text--user">Lorraine</div>
+                <div class="header__button--user"><i class="fa fa-chevron-right fa-fw" id="user-menu-icon" aria-hidden="true" onclick="ToggleMenuUser()"></i></div>
+                <div class="header__button--signout"><i class="fa fa-power-off fa-lg fa-fw" aria-hidden="true" i></i><span class="signout-tooltip">Log Off</span></div>
+                <!--
+                <i class="material-icons">notifications_none</i>
+                <i class="material-icons">event_note</i>
+                <i class="material-icons">mail_outline</i>
+                <i class="material-icons">account_circle</i>
+                <i class="material-icons">power_settings_new</i>
+-->
+            </div>
+        </div>
+
+            <div class="global-container-one">
+                <ul class="global-container-one__breadcrumbs">
+                    <li><a>Home</a></li>
+                    <li><a>Configuration Manager</a></li>
+                    <li><a>Global Settings</a></li>
+                    <li><a>Languages</a></li>
+                </ul>
+            </div>
+            <div class="container--main">
+                <form action="" method="post" id="editform">
+                <div class="global-container-two">
+                    <div class="global-container-two__heading-container">
+                        <span class="global-container-two__heading-text">Manage languages - Copy</span>
+                    </div>
+                    <div class="global-container-two__action-container">
+                        
+                            <button type="button" class="global-container-three__button grey-button" onclick="location.href='languages.html'"><div class="global-button__text">Back</div><i class="fa fa-arrow-circle-o-left fa-fw" aria-hidden="true"i></i></button>
+                            <button type="button" onclick="clearEditPage()" class="global-container-three__button orange-button"><div class="global-button__text">Clear</div><i class="fa fa-times-circle-o fa-fw" aria-hidden="true"i></i></button>
+                            <button type="button" class="global-container-three__button green-button" onclick="updateCurrentRow()"><div class="global-button__text">Save</div><i class="fa fa-floppy-o fa-fw" aria-hidden="true"i></i></button>
+                    </div>
+                </div>
+                <div class="global-container-three global-flex-column" id="input-area">
+
+<!--
+                    <div class="global-page__input-container">
+                        <label class="global-page__label">Language Code</label>
+                        <input required type="text" name="languageCode" placeholder="Max: 3 Characters" class="global-page__input" maxlength="3">
+                    </div>
+                    <div class="global-page__input-container">
+                        <label class="global-page__label">Language Text</label>
+                        <input required type="text" name="languageText" placeholder="Max: 70 Characters" class="global-page__input" maxlength="70">
+                    </div>
+-->
+                    
+                </div>
+                    </form>
+                <div class="global-container-four">
+
+                </div>
+                <div class="global-continer-five">
+
+                </div>
+            </div>
+            <div class="global-footer"></div>
+        </div>
+        <div class="global-popup__modal" id="deletepopupmodal">
+            <div class="global-popup__box">
+                <span class="global-popup__heading">Delete Selected Items</span>
+                <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+                <div class="global-popup__buttons">
+                    <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()">
+                    <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()">
+                </div>
+            </div>
+        </div>
+        <div class="global-popup__modal" id="addpopupmodal">
+            <div class="global-popup__box">
+                <span class="global-popup__heading">Add New Item</span>
+                <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+                <div id="global-popup__data">
+                    <input type="text" placeholder="Language Code" class="global-popup__input">
+                    <input type="text" placeholder="Language Text" class="global-popup__input">
+                </div>
+                <div class="global-popup__buttons">
+                    <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()">
+                    <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()">
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

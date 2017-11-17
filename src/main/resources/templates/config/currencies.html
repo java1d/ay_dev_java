@@ -1,0 +1,210 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ayiza | Settings - Currencies</title>
+    <div th:replace="fragments/header :: header"/>
+    <script type="text/javascript" src="/js/currencies.js"/>
+</head>
+
+<body>
+
+    <div th:replace="fragments/navigation :: navcontainer"/>
+
+    <div th:replace="fragments/navigation :: usercontainer"/>
+
+<script>
+    $(document).ready(function() {
+        $("#global-table").tablesorter({
+           /* sortList: [
+                [0, 0]
+            ],*/
+            headers: {
+                0: {
+                    sorter: false
+                },
+                4: {
+                    sorter: false
+                }
+            }
+        });
+        $("#global-table").bind("sortStart", function() {
+            $("#global-table").show();
+        }).bind("sortEnd", function() {
+            ShowXTableRows()
+        });
+    });
+</script>
+
+<div class="ay-globalsettings--12col" id="mainpage">
+    <div th:replace="fragments/navigation :: toolbar"/>
+
+    <div class="global-container-one">
+        <ul class="global-container-one__breadcrumbs">
+            <li><a>Home</a></li>
+            <li><a onclick="location.href = '../configmgr.html'">Configuration Manager</a></li>
+            <li><a onclick="location.href = '../configmgr/globalconfig.html'">Global Settings</a></li>
+            <li><a>Currencies</a></li>
+        </ul>
+    </div>
+    <div class="container--main">
+        <div class="global-container-two">
+            <div class="global-container-two__heading-container">
+                <span class="global-container-two__heading-text">Manage currencies</span>
+                <!--
+                                    <div class="fa-container-inline fa-stack" style="display: inline-block;">
+                                        <i class="fa fa-circle-thin
+                                          fa-stack-2x" aria-hidden="true"></i>
+                                        <i class="fa fa-cog fa-stack-1x" aria-hidden="true"></i>
+                                    </div>
+                -->
+            </div>
+            <div class="global-container-two__action-container">
+                <button class="global-container-two__action-button" id="quickactions" onclick="ToggleQuickActions()" onblur="">Quick Actions<i class="fa fa-chevron-down action-button__icon" id="quick-action-icon" aria-hidden="true"></i></button>
+                <div class="global-container-two__action-dropdown" id="quick-action-dropdown">
+                    <span onclick="QuickPrintTable()"><i class="fa fa-print fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"></i>Print</span>
+                    <span onclick="location.href='currencies_changelog.html'"><i class="fa fa-list-alt fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"></i>Change Log</span>
+                    <span><i class="fa fa-file-pdf-o fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"></i>Export PDF</span>
+                    <span onclick="location.href='currencies_import.html'"><i class="fa fa-upload fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"></i>Import CSV</span>
+                </div>
+            </div>
+        </div>
+        <div class="global-container-three">
+            <button class="global-container-three__button dodgerblue-button" onclick="location.href='currencies/add.html'"><div class="global-button__text">Add</div><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+            <button class="global-container-three__button crimson-button" onclick="ShowDeletePopup()"><div class="global-button__text">Delete</div><i class="fa fa-trash fa-fw" aria-hidden="true"></i></button>
+            <div class="global-container-three__show-container"><span class="show-dropdown__text"><div class="global-button__text">Show</div></span><label id="showicon" class="show-dropdown__icon" onclick="ShowXTableRows()">
+                <select class="show-dropdown__box" id="showamount" onclick="TableCount(); toggleShowBox()" onblur="toggleShowBox('reset')" onchange="TablePageReset()">
+                    <option>6</option>
+                    <option>12</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <!--                    <option></option>-->
+                    <option>All</option>
+                </select>
+            </label></div>
+            <div class="search-table-container">
+                    <span class="search-table__icon">
+                    <i class="fa fa-search fa-fw action-list__icon" id="quick-action-icon" aria-hidden="true"></i></span>
+                <input type="search" class="search-table__box fa" id="tablesearch" onkeyup="SearchGlobalTable()" onclick="expandSearchBox()" onblur="shortenSearchBox()" placeholder="Search"/>
+                <!--                    <button class="global-container-three__button" onclick="ShowAddPopup()"><div class="global-button__text">Add</div><i class="fa fa-search fa-fw" aria-hidden="true"i></i></button>-->
+            </div>
+        </div>
+        <!-- content div -->
+        <div class="global-container-four">
+            <table class="global-container-four__table tablesorter" id="global-table">
+                <thead>
+                <tr>
+                    <th> <!--or change to td-->
+                        <div class="global-table__checkbox">
+                            <input type="checkbox" value="0" id="gl-ta-checkbox" name="" onclick="SelectAll(this)"/>
+                            <label for="gl-ta-checkbox"></label>
+                        </div>
+                    </th>
+                    <th>Language</th>
+                    <th>Currency Code</th>
+                    <th>Currency Text</th>
+                    <th style="float: right; margin-right: 4.8rem; padding-top: 0.5rem;">Actions</th> <!--or change to td-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="currency : ${currencies}">
+                    <td>
+                        <div class="global-table__checkbox">
+                            <input type="checkbox" value="1" id="gl-ta-checkbox1" name="" onclick="UncheckSelectAll()"/>
+                            <label for="gl-ta-checkbox1"></label>
+                        </div>
+                    </td>
+                    <td th:text="${currency.language.text}"></td>
+                    <td th:text="${currency.code}"></td>
+                    <td th:text="${currency.text}"></td>
+                    <td>
+                        <div class="global-table__button-container">
+                            <button th:value="${currency.id}" id="buttonview1" class="global-table__button--viewrow" onclick="pushCurrentRow(this)">
+                                <i class="fa fa-search global-table__button--icon" aria-hidden="true"></i>
+                            </button>
+                            <button th:value="${currency.id}" id="buttonedit1" class="global-table__button--editrow" onclick="editEntry(this)">
+                                <i class="fa fa-pencil global-table__button--icon" aria-hidden="true"></i>
+                            </button>
+                            <button th:value="${currency.id}" id="buttoncopy1" class="global-table__button--copyrow" onclick="pushCurrentRow(this)">
+                                <i class="fa fa-clipboard global-table__button--icon" aria-hidden="true"></i>
+                            </button>
+                            <button th:value="${currency.id}" id="buttonbin1" class="global-table__button--deleterow" onclick="deleteEntry(this)">
+                                <i class="fa fa-trash global-table__button--icon" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="global-continer-five">
+            <div class="global-record-count">
+                <span class="global-record-count__text" id="globaltablecount">Showing results</span>
+            </div>
+            <div class="global-record-nav">
+                <input type="button" class="global-record-nav__button fa fa-input" value="&#xf053;"
+                       onclick="TablePageDown(), TableCount(), ShowXTableRows()" />
+                <span class="global-record-nav__count" id="tablepagecount">1</span>
+                <input type="button" class="global-record-nav__button fa fa-input" value="&#xf054;"
+                       onclick="TablePageUp(), TableCount(), ShowXTableRows()" />
+            </div>
+        </div>
+    </div>
+    <div class="global-footer">
+        <!--            <p onclick="toggleShowBox()">click me</p>-->
+        <ul class="footer__text">
+            <li class="footer__text--align" onclick="systemPopup()">System Details</li>
+            <!--<li class="footer__text-align">|</li>
+            <li class="footer__text-align"><a class="footer__pr" onclick="privacyPopup()">Privacy</a></li>
+            <li class="footer__text-align">|</li>
+            <li class="footer__text-align" onclick="tandcPopup()">Terms and Conditions</li>-->
+        </ul>
+    </div>
+</div>
+<div class="global-popup__modal" id="viewpopupmodal">
+    <div class="global-popup__box">
+        <span class="global-popup__heading" id="viewpopupheading">Record Details</span>
+        <div class="global-popup__body" id="viewpopupbody"></div>
+        <div class="global-popup__buttons">
+            <input type="button" value="Close" class="global-popup__cancel" onclick="closeViewPopup()"/>
+        </div>
+    </div>
+</div>
+<div class="global-popup__modal" id="deletepopupmodal">
+    <div class="global-popup__box">
+        <span class="global-popup__heading">Delete Selected Items</span>
+        <span class="global-popup__text" id="deleteAlert">Are you sure you would like to permanently delete the selected items?</span>
+        <div class="global-popup__buttons">
+            <input type="button" value="Delete" class="global-popup__delete" onclick="DeleteSelected()"/>
+            <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelDeleteSelected()"/>
+        </div>
+    </div>
+</div>
+<div class="global-popup__modal" id="addpopupmodal">
+    <div class="global-popup__box">
+        <span class="global-popup__heading">Add New Item</span>
+        <span class="global-popup__text" id="deleteAlert">Complete all the fields below to add a new item.</span>
+        <div id="global-popup__data">
+            <input type="text" placeholder="currency Code" class="global-popup__input"/>
+            <input type="text" placeholder="currency Text" class="global-popup__input"/>
+        </div>
+        <div class="global-popup__buttons">
+            <input type="button" value="Add New" class="global-popup__add" onclick="AddNewRow()"/>
+            <input type="button" value="Cancel" class="global-popup__cancel" onclick="CancelAddSelected()"/>
+        </div>
+    </div>
+</div>
+
+<div class="global-popup__modal" id="globalpopup">
+    <div class="global-popup__box">
+        <span class="global-popup__heading" id="gpheading"></span>
+        <span class="global-popup__text" id="gptext"></span>
+        <div class="global-popup__buttons" id="gpbuttons">
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+:root {
+	font-family: 'Dosis', sans-serif;
+	--ay-grn: #98cc58;
+	--ay-drkgry: #3b434c;
+	--ay-blugry: #a7b2c0;
+	font-size: 18px;
+}
+body {
+	margin: 0;
+}

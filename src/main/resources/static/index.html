@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ayiza | Welcome</title>
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/index_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/font-awesome-min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="js/index.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--    <script src="js/jquery-3.2.1.js"></script>-->
+    <script type="text/javascript" src="/js/common.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <div class="ay-layout--12col">
+        <div class="header" id="header">
+            <img class="header__logo" src="/img/common/Ayiza-Logo-Cropped.png">
+            <nav class="navigation">
+                <li onClick="location.href='signup.html'">Sign Up</li>
+                <li onClick="location.href='login.html'">Log In</li>
+            </nav>
+        </div>
+        <div class="banner--main">
+            <span class="span--main">Leading-Edge Business Process Innovations</span>
+            <div class="button-container--main">
+                <input type="button" class="button--main" value="Test Drive" onClick="location.href='pages/sign_up/signup.html';">
+                <input type="button" class="button--main" value="Learn More">
+            </div>
+        </div>
+        <div class="banner--secondary">
+            <div class="info-box a"><img class="info-box__img" src="/img/home/home_1.jpg">
+                <div class="info-box__heading"> We grow with you</div>
+                <div class="info-box__text">Ayiza products are completely scalable and tailored to fit your business needs</div>
+            </div>
+            <div class="info-box b"><img class="info-box__img" src="/img/home/home_2.jpg">
+                <div class="info-box__heading">Work fluidly across all of your devices</div>
+                <div class="info-box__text">Changes update as you make them and sync directly to your account</div>
+            </div>
+            <div class="info-box c"><img class="info-box__img" src="/img/home/home_3.jpg">
+                <div class="info-box__heading">Your business security is our business secuirity</div>
+                <div class="info-box__text">Frequent updates by our team ensures your data is safe with us</div>
+            </div>
+            <div class="caption-box d"><span class="span--secondary">Omni-Channel ERP</span></div>
+            <div class="caption-box e"><span class="span--secondary">Real-Time Simplicty</span></div>
+            <div class="caption-box f"><span class="span--secondary">Integrated Security</span></div>
+        </div>
+        <div class="banner--tertiary">
+            <div class="brief-box g">
+                <i class="material-icons"><i class="material-icons">settings_input_antenna</i></i>
+                <div class="brief-text-box">
+                    <h4 class="brief-box__heading">Live ERP</h4>
+                    <span class="brief-box__text">Ayiza Invoice, Ayiza expense</span>
+                </div>
+            </div>
+            <div class="brief-box h"><i class="fa fa-btc" id="bitcoinicon" aria-hidden="true"></i>
+                <div class="brief-text-box">
+                    <h4 class="brief-box__heading">Accountants In Mind</h4>
+                    <span class="brief-box__text">Let us handle your finances!</span>
+                </div>
+            </div>
+            <div class="brief-box i"><i class="material-icons">vpn_key</i>
+                <div class="brief-text-box">
+                    <h4 class="brief-box__heading">Tax Submissions</h4>
+                    <span class="brief-box__text">Let us handle your finances!</span>
+                </div>
+            </div>
+            <div class="brief-box j"><i class="material-icons">language</i>
+                <div class="brief-text-box">
+                    <h4 class="brief-box__heading">Ayiza Network</h4>
+                    <span class="brief-box__text">Let us handle your finances!</span>
+                </div>
+            </div>
+            <div class="brief-box k"><i class="material-icons">dashboard</i>
+                <div class="brief-text-box">
+                    <h4 class="brief-box__heading">Dashboards</h4>
+                    <span class="brief-box__text">Let us handle your finances!</span>
+                </div>
+            </div>
+            <div class="brief-box l"><i class="material-icons">timeline</i>
+                <div class="brief-text-box">
+                    <h4 class="brief-box__heading">Workflow</h4>
+                    <span class="brief-box__text">Let us handle your finances!</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <!--            <a class="footer__sysinfo">System Information</a>-->
+            <ul class="footer__text">
+                <li class="footer__text--align footer__sysinfo">
+                    System Information</li>
+                <li class="footer__text--align" id="footer__spare-spacer">|</li>
+                <li class="footer__text--align">&copy; 2017
+                    <script>
+                        new Date().getFullYear();
+                    </script> Copyright Ayiza</li>
+                <li class="footer__text--align">|</li>
+                <li class="footer__text--align" id="popup--open"><a class="footer__link" onClick="togglepopup()">Privacy</a></li>
+                <li class="footer__text--align">|</li>
+                <li class="footer__text--align myButtons">Terms and Conditions</li>
+            </ul>
+        </div>
+    </div>
+<!--
+    <div id="open-overlay" onclick="closemenu()">
+    </div>
+-->
+    <div id="to-top" onclick="gototop()"><span><i class="fa fa-arrow-up fa-lg" aria-hidden="true"i></i></span>
+    </div>
+    <div id="popup" class="popup__background">
+        <div class="popup__box">
+            <span class="popup--close">X</span>
+            <p id="popup__text"></p>
+        </div>
+    </div>
+</body>
+
+</html>

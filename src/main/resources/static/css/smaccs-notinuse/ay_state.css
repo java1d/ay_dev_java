@@ -1,0 +1,214 @@
+@charset "utf-8";
+/* CSS Document */
+/*https://proto.io/freebies/onoff/*/
+
+:root {
+	font-family: 'Dosis', sans-serif;
+	--ay-grn: #98cc58;
+	--ay-drkgry: #3b434c;
+	--ay-blugry: #a7b2c0;
+	font-size: 18px;
+}
+body {
+	margin: 0;
+}
+.mygrid {
+	display: grid;
+	height: 100vh;
+	background-color: var(--ay-blugry);
+	grid-template-columns: 6vw 1fr 6vw;
+	grid-template-rows: 1fr 12vh;
+}
+.edge {
+	background-color: var(--ay-blugry);
+}
+.bottom {
+	grid-column: 1 / 4;
+}
+.main--block {
+	background-color: var(--ay-blugry);
+	display: grid;
+	grid-template-rows: minmax(max-content, 8vh) 1fr minmax(max-content, 12vh);
+}
+.top--block, .bottom--block {
+	background-color: var(--ay-drkgry)/*#000d1a*/;
+}
+.mid--block {
+	grid-row-start: 2;
+	background-color: var(--ay-drkgry);
+	background: url("file:///C|/Users/abdul/OneDrive/Documents/assets/ayiza_Images/Slide_Images/AY_London_1.jpeg") no-repeat;
+	background-size: cover;
+}
+#underlay {
+	display: block;
+}
+.overlay {
+	width: 26vw;
+	height: 100%;
+	background-color: rgba(255,255,255,0.9);
+	/*overflow: auto;*/
+	/*text-align: center;*/
+}
+.img--logo--big {
+	min-height: 40px;
+	height: auto;
+	
+}
+#signin {
+	padding: 0.4em 0 1em 0.6em;
+	margin: 0;
+	color: var(--ay-drkgry);
+	font-weight: 100;
+}
+.icon {
+	padding: 0.6em 0 0 1em;
+	color: var(--ay-drkgry);
+	
+}
+#label {
+	font-size: 0.8em;
+	display: inline-block;
+	margin-left: 10px;
+	font-family: 'Dosis', sans-serif;
+}
+.input {
+	display: inline-block;
+	box-sizing: border-box;
+	border: 0; 
+	border-bottom: solid 1px rgba(0,0,0,0.6);
+	background: transparent;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+	box-shadow: 0px 0px 0px var(--ay-drkgry);
+	margin: 0.8em 1em;
+	padding: 0.1em;
+	min-width: 94%;
+	/*width: auto;
+	float: left;*/
+}
+.input:focus {
+	outline: none;
+	border-bottom: 1px solid var(--ay-grn);
+	box-shadow: 0px 4px 4px -3px var(--ay-grn);
+}
+input[type=checkbox] {
+	visibility: hidden;
+}
+#rememberme {
+	margin-left: 1em;
+}
+#checkremember {
+	width: 1.9em;
+	height: 1em;
+	background: transparent;
+	margin-left: 1em;
+	border-radius: 50%;
+	position: relative;
+	box-shadow: 0px 0px 0px var(--ay-drkgry);
+}
+#checkremember:before {
+	content:"";
+	position: absolute;
+	top: 1.3em;
+	height: 2px;
+	width: 2em;
+	background: var(--ay-blugry);
+}
+#checkremember label {
+	display: block;
+	width: 0.8em;
+	height: 0.8em;
+	border-radius: 25%;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 0.95em;
+	left: 0.1em;
+	z-index: 1;
+	background: #232323;
+}
+#checkremember input[type=checkbox]:checked + label {
+	background: var(--ay-grn);
+	left: 1.1em;
+}
+#checkremember input[type=checkbox]:checked {
+	background: white;
+	margin-left: 3em;
+}
+#checktext {
+	display: inline-block;
+	position: absolute;
+	font-size: 0.6em;
+	margin-left: 4em;
+	width: 12em;
+}
+#proceed {
+	display: inline-block;
+	padding: 0.6em 1.2em;
+	margin: 3em 0 0 1em;
+	border: none;
+	border-radius: 1px;
+	background-color: var(--ay-grn);
+	color: var(--ay-drkgry);
+	cursor: pointer;
+	font-family: 'Dosis', sans-serif;
+}
+#proceed:focus {
+	outline: none;
+	border: 1px solid var(--ay-drkgry);
+} /*CHANGE LATER*/
+.ay--lang {
+	margin-left: 1em;
+	padding: 0.1em;
+	border: none;
+	appearance: none;
+	-webkit-appearance: none;
+	moz-appearance: none;
+	font-family: 'Dosis', sans-serif;
+	background: transparent;
+	color: var(--ay-drkgry);
+}
+.ay--lang:focus {
+	box-shadow: 0 4px 4px -3px var(--ay-grn);
+	outline: none;
+}
+#links {
+	display: block;
+	font-size: 0.6em;
+	color: var(--ay-drkgry);
+	margin: 0 0 0 1em;
+	text-decoration: none;
+	padding-top: 0.5em;
+}
+
+@media only screen and (max-width: 860px) {
+.mygrid {
+	grid-template-columns: 16vw 1fr 16vw;
+}
+.overlay {
+	width: 60vw;
+}
+}
+
+@media only screen and (max-width: 640px) {
+.main--block {
+	grid-column: 1/4;
+	grid-row: 1/2;
+}
+.edge {
+	display: none;
+}
+.mid--block {
+	display: flex;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	justify-content: center;
+}
+.overlay {
+	width: 80vw;
+}
+.input {
+	width: 90%;
+}
+}
