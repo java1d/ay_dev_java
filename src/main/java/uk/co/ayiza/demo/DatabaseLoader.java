@@ -28,14 +28,15 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        this.languageRepository.save(new Language(Locale.UK));
-        this.languageRepository.save(new Language(Locale.GERMANY));
-        this.languageRepository.save(new Language(Locale.FRANCE));
-        this.languageRepository.save(new Language(Locale.ITALY));
-
-        this.currencyRepository.save(new Currency(languageRepository.findOne(1L),"GBP","British Pound"));
-        this.currencyRepository.save(new Currency(languageRepository.findOne(2L),"EUR","Euro"));
-        this.currencyRepository.save(new Currency(languageRepository.findOne(3L),"EUR","Euro"));
-        this.currencyRepository.save(new Currency(languageRepository.findOne(4L),"EUR","Euro"));
+        if(languageRepository.count() != 4) {
+            this.languageRepository.save(new Language(Locale.UK));
+            this.languageRepository.save(new Language(Locale.GERMANY));
+            this.languageRepository.save(new Language(Locale.FRANCE));
+            this.languageRepository.save(new Language(Locale.ITALY));
+            this.currencyRepository.save(new Currency(languageRepository.findOne(1L),"GBP","British Pound"));
+            this.currencyRepository.save(new Currency(languageRepository.findOne(2L),"EUR","Euro"));
+            this.currencyRepository.save(new Currency(languageRepository.findOne(3L),"EUR","Euro"));
+            this.currencyRepository.save(new Currency(languageRepository.findOne(4L),"EUR","Euro"));
+        }
     }
 }

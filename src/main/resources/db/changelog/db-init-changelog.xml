@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="initial-setup" author="rtai">
+        <createTable schemaName="AYIZA" tableName="LANGUAGE">
+            <column autoIncrement="true" name="LANGUAGE_ID" type="BIGINT(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="LANGUAGE_CODE" type="VARCHAR(3)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="LANGUAGE_TEXT" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable schemaName="AYIZA" tableName="CURRENCY">
+            <column autoIncrement="true" name="CURRENCY_ID" type="BIGINT(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CURRENCY_CODE" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CURRENCY_TEXT" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LANGUAGE_ID" type="BIGINT(19)">
+                <constraints foreignKeyName="FK_CURRENCY_LANGUAGE" references="LANGUAGE(LANGUAGE_ID)" nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

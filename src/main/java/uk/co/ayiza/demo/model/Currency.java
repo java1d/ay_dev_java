@@ -2,10 +2,7 @@ package uk.co.ayiza.demo.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -14,20 +11,25 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
+@Table(name = "CURRENCY")
 public class Currency {
 
     @Id @GeneratedValue
     @XmlElement
+    @Column(name = "CURRENCY_ID")
     private Long id;
 
     @XmlElement
+    @Column(name = "CURRENCY_CODE")
     private String code;
 
     @XmlElement
+    @Column(name = "CURRENCY_TEXT")
     private String text;
 
     @XmlElement
     @OneToOne
+    @JoinColumn(name = "LANGUAGE_ID")
     private Language language;
 
     private Currency() {}

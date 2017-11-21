@@ -1,8 +1,6 @@
 package uk.co.ayiza.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Locale;
@@ -12,16 +10,20 @@ import java.util.Locale;
  */
 @Entity
 @XmlRootElement
+@Table(name = "LANGUAGE")
 public class Language {
 
     @Id @GeneratedValue
     @XmlElement
+    @Column(name = "LANGUAGE_ID")
     private long id;
 
     @XmlElement
+    @Column(name = "LANGUAGE_CODE")
     private String code;
 
     @XmlElement
+    @Column(name = "LANGUAGE_TEXT")
     private String text;
 
     private Language() {}
